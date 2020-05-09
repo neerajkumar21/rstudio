@@ -1,9 +1,14 @@
-# Load raw data
+Load raw data
+```{r }
 train <- read.csv("train.csv", header = TRUE)
 test <- read.csv("test.csv", header = TRUE)
-
+```
 # Add a "Survived" variable to the test set to allow for combining data sets
+```{r }
 test.Survived <- data.frame(Survived = rep("None", nrow(test)), test[,])
+head(test)
+```
+```{r }
 ## test.Survived <- data.frame(Survived = rep("None"), test[,])
 
 # Combine data sets test.survived, and train
@@ -202,3 +207,5 @@ ggplot(data.combined[1:891,], aes(x = family.size, fill = Survived)) +
   ylab("Total Count") +
   ylim(0,300) +
   labs(fill = "Survived")
+```
+
